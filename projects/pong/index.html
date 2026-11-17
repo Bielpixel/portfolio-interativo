@@ -1,76 +1,168 @@
 <!doctype html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Neon Pong · Biel</title>
-  <meta name="description" content="Neon Pong alpha 0.1: Aurora contra Kage, com barreiras e habilidades especiais. Um projeto de Bielpixel.">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <main class="game-shell">
-    <header class="topbar">
-      <div>
-        <p class="eyebrow">ARCADE // 001</p>
-        <h1>NEON PONG</h1>
-      </div>
-      <div class="score" aria-label="Placar">
-        <span id="player-score">0</span>
-        <b>:</b>
-        <span id="computer-score">0</span>
-      </div>
-      <div class="passives" aria-label="Passivas ativas">
-        <span class="skill-barrier">◈ Barreira absoluta</span>
-        <span class="skill-spectral">⌁ Desvio espectral</span>
-        <span class="skill-astral">⊹ Mira astral</span>
-        <span class="skill-relief">◇ Alívio cinético</span>
-        <span class="skill-ult">✦ Velocidade celestial</span>
-      </div>
-      <div class="controls">
-        <button id="pause-button" type="button">Pausar</button>
-        <button id="restart-button" type="button">Reiniciar</button>
-      </div>
-    </header>
-
-    <section class="arena-layout" aria-label="Arena e personagens">
-      <article class="character-panel player-panel">
-        <div class="character-mark">A</div>
-        <p class="panel-role">JOGADOR</p>
-        <h2>AURORA</h2>
-        <p class="panel-description">Guardião da última linha.</p>
-        <div class="panel-status" id="player-state">PRONTO</div>
-        <div class="health-display"><div class="health-label"><span>HP</span><strong id="player-health-value">10 / 10</strong></div><div class="health-track"><div class="health-fill" id="player-health-fill"></div></div></div>
-        <div class="panel-skills"><span class="skill-barrier">◈ BARREIRA ABSOLUTA</span><span class="skill-spectral">⌁ DESVIO ESPECTRAL</span><span class="skill-astral">⊹ VELOCIDADE ASTRAL</span><span class="skill-relief">◇ ALÍVIO CINÉTICO</span><span class="skill-ult">✦ VELOCIDADE CELESTIAL</span></div>
-      </article>
-      <div class="game-frame" id="arena" aria-label="Jogo Pong">
-        <canvas id="pong" width="960" height="540"></canvas>
-        <div class="game-message" id="game-message">Pressione Espaço para começar</div>
-        <div class="ultimate-scene" id="ultimate-scene" hidden>
-          <span>HABILIDADE SUPREMA</span>
-          <strong>VELOCIDADE CELESTIAL</strong>
-          <small>LIBERANDO O LIMITE</small>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Neon Pong · Biel</title>
+    <meta
+      name="description"
+      content="Neon Pong alpha 0.1: Aurora contra Kage, com barreiras e habilidades especiais. Um projeto de Bielpixel."
+    />
+    <link
+      rel="stylesheet"
+      href="assets/css/fonts.css"
+    />
+    <link
+      rel="stylesheet"
+      href="assets/css/style.css"
+    />
+  </head>
+  <body>
+    <main class="game-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">ARCADE // 001</p>
+          <h1>NEON PONG</h1>
         </div>
-      </div>
-      <article class="character-panel cpu-panel">
-        <div class="character-mark">N</div>
-        <p class="panel-role">OPONENTE</p>
-        <h2>KAGE</h2>
-        <p class="panel-description">O ninja que rebate qualquer ameaça no contato.</p>
-        <div class="panel-status enemy-status" id="cpu-state">EM GUARDA</div>
-        <div class="panel-skills"><span>◌ REBATE NINJA</span><span>◌ DASH SOMBRIO</span><span>◌ DOMÍNIO LARANJA</span></div>
-      </article>
-    </section>
+        <div
+          class="score"
+          aria-label="Placar"
+        >
+          <span id="player-score">0</span>
+          <b>:</b>
+          <span id="computer-score">0</span>
+        </div>
+        <div
+          class="passives"
+          aria-label="Passivas ativas"
+        >
+          <span class="skill-barrier">◈ Barreira absoluta</span>
+          <span class="skill-spectral">⌁ Desvio espectral</span>
+          <span class="skill-astral">⊹ Mira astral</span>
+          <span class="skill-relief">◇ Alívio cinético</span>
+          <span class="skill-ult">✦ Velocidade celestial</span>
+        </div>
+        <div class="controls">
+          <button
+            id="pause-button"
+            type="button"
+          >
+            Pausar
+          </button>
+          <button
+            id="restart-button"
+            type="button"
+          >
+            Reiniciar
+          </button>
+        </div>
+      </header>
 
-    <footer class="instructions">
-      <span>W / S ou ↑ / ↓ para mover</span>
-      <span>Espaço para iniciar ou pausar</span>
-      <span>Mouse esquerdo: mira astral · C: desvio espectral</span>
-      <span>Mouse direito: alívio cinético · X: ULT</span>
-      <span>Pontuação livre · partida infinita</span>
-    </footer>
-    <nav class="portfolio-links" aria-label="Projeto no portfólio"><a id="back-portfolio" href="../../index.html#work">← Voltar ao portfólio</a><a href="https://github.com/Bielpixel/Neon-Pong-alpha-0.1" target="_blank" rel="noopener noreferrer">Código original ↗</a></nav>
-  </main>
-  <script src="script.js"></script>
-  <script src="portfolio.js"></script>
-</body>
+      <section
+        class="arena-layout"
+        aria-label="Arena e personagens"
+      >
+        <article class="character-panel player-panel">
+          <div class="character-mark">A</div>
+          <p class="panel-role">JOGADOR</p>
+          <h2>AURORA</h2>
+          <p class="panel-description">Guardião da última linha.</p>
+          <div
+            class="panel-status"
+            id="player-state"
+          >
+            PRONTO
+          </div>
+          <div class="health-display">
+            <div class="health-label">
+              <span>HP</span><strong id="player-health-value">10 / 10</strong>
+            </div>
+            <div class="health-track">
+              <div
+                class="health-fill"
+                id="player-health-fill"
+              ></div>
+            </div>
+          </div>
+          <div class="panel-skills">
+            <span class="skill-barrier">◈ BARREIRA ABSOLUTA</span
+            ><span class="skill-spectral">⌁ DESVIO ESPECTRAL</span
+            ><span class="skill-astral">⊹ VELOCIDADE ASTRAL</span
+            ><span class="skill-relief">◇ ALÍVIO CINÉTICO</span
+            ><span class="skill-ult">✦ VELOCIDADE CELESTIAL</span>
+          </div>
+        </article>
+        <div
+          class="game-frame"
+          id="arena"
+          aria-label="Jogo Pong"
+        >
+          <canvas
+            id="pong"
+            width="960"
+            height="540"
+          ></canvas>
+          <div
+            class="game-message"
+            id="game-message"
+          >
+            Pressione Espaço para começar
+          </div>
+          <div
+            class="ultimate-scene"
+            id="ultimate-scene"
+            hidden
+          >
+            <span>HABILIDADE SUPREMA</span>
+            <strong>VELOCIDADE CELESTIAL</strong>
+            <small>LIBERANDO O LIMITE</small>
+          </div>
+        </div>
+        <article class="character-panel cpu-panel">
+          <div class="character-mark">N</div>
+          <p class="panel-role">OPONENTE</p>
+          <h2>KAGE</h2>
+          <p class="panel-description">O ninja que rebate qualquer ameaça no contato.</p>
+          <div
+            class="panel-status enemy-status"
+            id="cpu-state"
+          >
+            EM GUARDA
+          </div>
+          <div class="panel-skills">
+            <span>◌ REBATE NINJA</span><span>◌ DASH SOMBRIO</span
+            ><span>◌ DOMÍNIO LARANJA</span>
+          </div>
+        </article>
+      </section>
+
+      <footer class="instructions">
+        <span>W / S ou ↑ / ↓ para mover</span>
+        <span>Espaço para iniciar ou pausar</span>
+        <span>Mouse esquerdo: mira astral · C: desvio espectral</span>
+        <span>Mouse direito: alívio cinético · X: ULT</span>
+        <span>Pontuação livre · partida infinita</span>
+      </footer>
+      <nav
+        class="portfolio-links"
+        aria-label="Projeto no portfólio"
+      >
+        <a
+          id="back-portfolio"
+          href="../../index.html#work"
+          >← Voltar ao portfólio</a
+        ><a
+          href="https://github.com/Bielpixel/Neon-Pong-alpha-0.1"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Código original ↗</a
+        >
+      </nav>
+    </main>
+    <script src="assets/js/game.js"></script>
+    <script src="assets/js/portfolio.js"></script>
+  </body>
 </html>

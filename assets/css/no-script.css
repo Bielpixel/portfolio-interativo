@@ -1,0 +1,8 @@
+.booting main,
+.booting .header,
+[data-build] {
+  visibility: visible !important;
+}
+.controller {
+  display: none;
+}

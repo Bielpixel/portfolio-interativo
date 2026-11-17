@@ -1,0 +1,345 @@
+.project-grid {
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.project-visual {
+  height: 260px;
+  background: var(--poster) !important;
+  position: relative;
+}
+.project-poster {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
+  overflow: hidden;
+}
+.project-poster strong {
+  font-size: clamp(55px, 6vw, 88px);
+  letter-spacing: -0.08em;
+  line-height: 1;
+}
+.project-poster small {
+  font:
+    10px ui-monospace,
+    monospace;
+  letter-spacing: 0.2em;
+}
+.poster-ada {
+  color: #fff;
+  background:
+    linear-gradient(#036f8033, #00495c77),
+    url('../../projects/ada/assets/images/patas.jpg') center/cover;
+}
+.poster-xmen {
+  color: #ffe569;
+  background: radial-gradient(ellipse at 70% 50%, #173c67, #0d1425);
+}
+.poster-xmen:after {
+  content: '';
+  background: url('../../projects/xmen/assets/images/card-wolverine.png') center/contain
+    no-repeat;
+  position: absolute;
+  right: -5%;
+  top: 0;
+  width: 58%;
+  height: 100%;
+  opacity: 0.5;
+}
+.poster-flappy {
+  color: #213d36;
+  background: linear-gradient(#72c3cd 0 79%, #d9d5a2 79% 87%, #6f946a 87%);
+}
+.poster-flappy strong {
+  font-size: 66px;
+  text-shadow: 3px 3px #fff7;
+}
+.poster-classic {
+  color: #443585;
+  background: linear-gradient(135deg, #f4f0ff, #cbbcf4);
+}
+.poster-landing {
+  color: #eff5e8;
+  background:
+    linear-gradient(#172a2e55, #172a2eaa),
+    url('../../projects/landing/assets/images/montanhas.jpg') center/cover;
+}
+.poster-landing strong {
+  font-family: Georgia, serif;
+  font-weight: 400;
+  font-style: italic;
+}
+.poster-cards {
+  color: #f5efff;
+  background: linear-gradient(140deg, #443a70, #1e1b31);
+}
+.poster-appic {
+  color: #75edc8;
+  background: linear-gradient(130deg, #224c47, #112e3d);
+}
+.project-caption {
+  display: block;
+}
+.project-caption > p {
+  min-height: 36px;
+  line-height: 1.65;
+  margin: 10px 0 18px;
+}
+.project-caption h3 {
+  margin: 0;
+}
+.project-actions {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.project-open {
+  padding: 11px 16px;
+  border: 1px solid #627b94;
+  border-radius: 5px;
+  background: #edf3ff;
+  color: #142332;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.project-open:hover {
+  background: #93c8ff;
+}
+.project-source {
+  font-size: 11px;
+  color: #a0b5d0;
+}
+.project {
+  transition: border-color 0.25s;
+}
+.project:hover {
+  border-color: #547dae;
+}
+.other-projects {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.other-projects article {
+  border: 1px solid #293648;
+  padding: 26px;
+  background: #101725;
+}
+.other-projects h3 {
+  margin: 10px 0;
+  font-size: 27px;
+  letter-spacing: -0.04em;
+}
+.other-projects p {
+  font-size: 13px;
+  line-height: 1.7;
+  color: #9caec5;
+}
+.other-projects .tag {
+  font:
+    9px ui-monospace,
+    monospace;
+  letter-spacing: 0.14em;
+  color: #a2c5ff;
+}
+.other-projects a {
+  font-size: 12px;
+  border-bottom: 1px solid #769cbd;
+  padding-bottom: 3px;
+}
+.portal {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100dvh;
+  max-width: none;
+  max-height: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  background: #0b111c;
+  color: #e8f2ff;
+  z-index: 100;
+}
+.portal::backdrop {
+  background: #02060be8;
+  backdrop-filter: blur(12px);
+}
+.portal[open] {
+  display: flex;
+  flex-direction: column;
+  animation: portal-in 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.portal.closing {
+  animation: portal-out 0.45s ease-in both;
+}
+.portal-bar {
+  height: 66px;
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 0 24px;
+  border-bottom: 1px solid #26374c;
+}
+.portal-bar button {
+  border: 1px solid #526780;
+  border-radius: 6px;
+  background: #1a2a40;
+  color: #fff;
+  padding: 10px 16px;
+  font: 600 12px system-ui;
+  cursor: pointer;
+}
+.portal-bar strong {
+  font-size: 13px;
+  margin-right: auto;
+}
+.portal-bar a {
+  font-size: 11px;
+  color: #a3bedb;
+}
+.portal iframe {
+  flex: 1;
+  width: 100%;
+  border: 0;
+  background: #0d1622;
+  min-height: 0;
+}
+.portal-loading {
+  position: absolute;
+  inset: 66px 0 0;
+  background: #0b111c;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  gap: 15px;
+  pointer-events: none;
+}
+.portal-loading[hidden] {
+  display: none;
+}
+.portal-loading span {
+  font:
+    10px ui-monospace,
+    monospace;
+  letter-spacing: 0.1em;
+  color: #8cacd5;
+}
+.portal-loading strong {
+  font-size: clamp(28px, 5vw, 60px);
+  letter-spacing: -0.05em;
+}
+.portal-progress {
+  height: 2px;
+  width: 130px;
+  margin: auto;
+  background: linear-gradient(90deg, #10213b, #7dbbff, #10213b);
+  background-size: 200% 100%;
+  animation: loading 1s linear infinite;
+}
+.portal-open {
+  overflow: hidden;
+}
+.portal-open .controller {
+  visibility: hidden;
+}
+@keyframes portal-in {
+  from {
+    clip-path: circle(0 at var(--ox, 50%) var(--oy, 50%));
+    opacity: 0.3;
+  }
+  to {
+    clip-path: circle(150vmax at var(--ox, 50%) var(--oy, 50%));
+    opacity: 1;
+  }
+}
+@keyframes portal-out {
+  to {
+    clip-path: circle(0 at var(--ox, 50%) var(--oy, 50%));
+    opacity: 0;
+  }
+}
+@keyframes loading {
+  to {
+    background-position: 200% 0;
+  }
+}
+@media (max-width: 700px) {
+  .project-grid,
+  .other-projects {
+    grid-template-columns: 1fr;
+  }
+  .project-visual {
+    height: 230px;
+  }
+  .portal-bar {
+    padding: 0 12px;
+    gap: 12px;
+    height: 60px;
+  }
+  .portal-bar button {
+    padding: 9px;
+    font-size: 11px;
+  }
+  .portal-bar strong {
+    font-size: 12px;
+  }
+  .portal-bar a:last-child {
+    display: none;
+  }
+  .portal-loading {
+    inset: 60px 0 0;
+  }
+  .other-projects article {
+    padding: 22px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .portal[open],
+  .portal.closing,
+  .portal-progress {
+    animation: none !important;
+  }
+}
+
+.poster-pong {
+  background:
+    radial-gradient(circle at 30% 30%, #5ee7d01c, transparent 50%),
+    radial-gradient(circle at 80% 80%, #ff6ca826, transparent 55%), #101524 !important;
+  isolation: isolate;
+}
+.poster-pong:before {
+  content: '';
+  position: absolute;
+  inset: 20% 12%;
+  border-left: 5px solid #5ee7d0;
+  border-right: 5px solid #ff6ca8;
+  box-shadow:
+    -8px 0 28px #5ee7d022,
+    8px 0 28px #ff6ca822;
+  z-index: -1;
+}
+.poster-pong:after {
+  content: '';
+  position: absolute;
+  top: 20%;
+  bottom: 20%;
+  left: 50%;
+  border-left: 2px dashed #8393ac44;
+  z-index: -1;
+}
+.poster-pong strong {
+  font-size: clamp(28px, 4vw, 56px);
+  color: #e7fff8;
+  text-shadow: 0 0 25px #5ee7d055;
+}
+.poster-pong small {
+  color: #9ae8da;
+}

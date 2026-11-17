@@ -1,0 +1,75 @@
+body {
+  --bg: #122428;
+  --ink: #edf4dd;
+  --muted: #a2b6ae;
+  --accent: #f1d65c;
+  --button-ink: #253324;
+}
+.arcade {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: 70px;
+  align-items: center;
+  min-height: calc(100svh - 155px);
+  padding-top: 45px;
+  padding-bottom: 45px;
+}
+.game-shell {
+  padding: 12px;
+  border-radius: 20px;
+  background: #283e3c;
+  border: 1px solid #517068;
+  box-shadow: 0 30px 80px #0005;
+}
+canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  image-rendering: pixelated;
+  border-radius: 10px;
+  touch-action: none;
+}
+.score-row {
+  display: flex;
+  gap: 45px;
+  margin: 25px 0;
+}
+.score-row span {
+  font:
+    10px ui-monospace,
+    monospace;
+  letter-spacing: 0.1em;
+}
+.score-row strong {
+  display: block;
+  font-size: 42px;
+}
+.arcade .actions {
+  gap: 8px;
+}
+.arcade .actions button {
+  padding: 10px 14px;
+  font-size: 12px;
+}
+@media (max-width: 750px) {
+  .arcade {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  .arcade h1 {
+    font-size: 55px;
+  }
+  .game-shell {
+    max-width: 345px;
+    width: 100%;
+    margin: auto;
+  }
+}
+
+/* Component variants */
+.brand-accent {
+  color: #f1d65c;
+}
+.game-status {
+  margin-top: 20px;
+}

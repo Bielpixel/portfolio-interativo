@@ -1,0 +1,104 @@
+body {
+  --bg: #101923;
+  --ink: #f0f6ff;
+  --muted: #98afbe;
+  --card: #172633;
+  --accent: #67e5ba;
+  --button-ink: #0b3025;
+}
+.focus-card {
+  background: linear-gradient(130deg, #1d3f40, #152b36);
+  padding: 35px;
+  border: 1px solid #335459;
+  border-radius: 24px;
+}
+.focus-card strong {
+  display: block;
+  font-size: 85px;
+  letter-spacing: -0.08em;
+  line-height: 1.2;
+}
+.meter {
+  height: 8px;
+  background: #29464c;
+  border-radius: 20px;
+  margin: 20px 0;
+  overflow: hidden;
+}
+.meter i {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: #67e5ba;
+  transition: width 0.3s;
+}
+.board {
+  padding: 35px;
+  background: #172633;
+  border: 1px solid #294251;
+  border-radius: 22px;
+  margin-bottom: 80px;
+}
+.board h2 {
+  font-size: 27px;
+}
+.board ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+.board li {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  padding: 16px 0;
+  border-bottom: 1px solid #34505b;
+}
+.board li label {
+  margin: 0;
+  flex: 1;
+  font-size: 15px;
+  overflow-wrap: anywhere;
+}
+.board li.done label {
+  text-decoration: line-through;
+  color: #829eaa;
+}
+.board li button {
+  padding: 6px 10px;
+}
+.board #new-task {
+  align-items: center;
+}
+.board input {
+  background: #10202c;
+  border-color: #496777;
+}
+.board input[type='checkbox'] {
+  accent-color: #67e5ba;
+  width: 18px;
+  height: 18px;
+}
+#summary {
+  margin-bottom: 0;
+}
+@media (max-width: 700px) {
+  .board {
+    padding: 20px;
+  }
+  .board .chips {
+    margin-bottom: 20px;
+  }
+}
+
+/* Component variants */
+.brand-accent {
+  color: #22cba2;
+}
+.board-toolbar {
+  justify-content: space-between;
+}
+.task-field {
+  flex: 1;
+  min-width: 190px;
+}

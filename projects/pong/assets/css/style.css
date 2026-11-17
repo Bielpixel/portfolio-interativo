@@ -1,0 +1,447 @@
+:root {
+  --bg: #090b12;
+  --panel: #111522;
+  --line: #263048;
+  --text: #f2f4ff;
+  --muted: #7d879f;
+  --cyan: #5ee7d0;
+  --pink: #ff6ca8;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  min-height: 100vh;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  overflow-x: hidden;
+  color: var(--text);
+  background: radial-gradient(circle at 50% 0%, #17233a 0, #090b12 45%);
+  font-family: 'Space Grotesk', sans-serif;
+}
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.18;
+  background-image:
+    linear-gradient(#fff 1px, transparent 1px),
+    linear-gradient(90deg, #fff 1px, transparent 1px);
+  background-size: 52px 52px;
+  mask-image: linear-gradient(180deg, #000, transparent 75%);
+}
+.game-shell {
+  width: min(1120px, calc(100% - 36px));
+  padding: 28px 0;
+}
+.topbar {
+  display: grid;
+  grid-template-columns: 1fr auto auto 1fr;
+  align-items: end;
+  gap: 24px;
+  margin-bottom: 18px;
+}
+.eyebrow {
+  margin: 0 0 5px;
+  color: var(--cyan);
+  font:
+    700 0.68rem 'Space Mono',
+    monospace;
+  letter-spacing: 0.2em;
+}
+h1 {
+  margin: 0;
+  font-size: clamp(1.7rem, 4vw, 2.8rem);
+  letter-spacing: 0.08em;
+  line-height: 1;
+}
+.score {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: var(--cyan);
+  font:
+    700 clamp(2rem, 5vw, 3.5rem) 'Space Mono',
+    monospace;
+  line-height: 1;
+}
+.score b {
+  color: var(--muted);
+  font-weight: 400;
+}
+.passives {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  color: var(--cyan);
+  font:
+    400 0.61rem 'Space Mono',
+    monospace;
+  text-transform: uppercase;
+}
+.passives span:last-child {
+  color: var(--pink);
+}
+.skill-barrier {
+  color: var(--cyan) !important;
+}
+.skill-spectral {
+  color: #ffffff !important;
+}
+.skill-astral {
+  color: #b9a7ff !important;
+}
+.skill-ult {
+  color: #ffd166 !important;
+}
+.skill-relief {
+  color: #75f58a !important;
+}
+.controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 9px;
+}
+button {
+  border: 1px solid var(--line);
+  padding: 10px 14px;
+  color: var(--text);
+  background: #161c2b;
+  font:
+    700 0.72rem 'Space Mono',
+    monospace;
+  cursor: pointer;
+  transition:
+    color 0.2s,
+    border-color 0.2s,
+    transform 0.2s,
+    background 0.2s;
+}
+button:hover {
+  border-color: var(--cyan);
+  color: var(--cyan);
+  transform: translateY(-2px);
+}
+button:active {
+  transform: translateY(0);
+}
+.game-frame {
+  position: relative;
+  padding: 12px;
+  border: 1px solid var(--line);
+  background: #0e1320;
+  box-shadow:
+    0 24px 80px #0008,
+    0 0 0 1px #5ee7d00b;
+}
+.game-frame.orange-domain {
+  border-color: #ff9f1c;
+  box-shadow:
+    0 24px 80px #0008,
+    0 0 35px #ff9f1c55;
+}
+.arena-layout {
+  display: grid;
+  grid-template-columns: 170px minmax(0, 1fr) 170px;
+  align-items: stretch;
+  gap: 14px;
+}
+.character-panel {
+  min-height: 190px;
+  align-self: center;
+  padding: 18px 15px;
+  border: 1px solid #263048;
+  background: linear-gradient(150deg, #121d2a, #0d111c);
+  box-shadow: 0 12px 30px #0005;
+}
+.cpu-panel {
+  border-color: #47283f;
+  background: linear-gradient(150deg, #211421, #0d111c);
+  text-align: right;
+}
+.character-mark {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  margin-bottom: 18px;
+  place-items: center;
+  border: 1px solid var(--cyan);
+  color: var(--cyan);
+  font:
+    700 1.25rem 'Space Mono',
+    monospace;
+}
+.cpu-panel .character-mark {
+  margin-left: auto;
+  border-color: var(--pink);
+  color: var(--pink);
+}
+.panel-role {
+  margin: 0 0 7px;
+  color: var(--muted);
+  font:
+    700 0.57rem 'Space Mono',
+    monospace;
+  letter-spacing: 0.16em;
+}
+.character-panel h2 {
+  margin: 0;
+  color: var(--text);
+  font-size: 1.45rem;
+  letter-spacing: 0.12em;
+}
+.panel-description {
+  min-height: 42px;
+  margin: 9px 0 15px;
+  color: var(--muted);
+  font-size: 0.72rem;
+  line-height: 1.45;
+}
+.panel-status {
+  display: inline-block;
+  margin-bottom: 15px;
+  padding: 5px 7px;
+  border: 1px solid #5ee7d055;
+  color: var(--cyan);
+  font:
+    700 0.58rem 'Space Mono',
+    monospace;
+}
+.enemy-status {
+  border-color: #ff6ca855;
+  color: var(--pink);
+}
+.health-display {
+  margin: 0 0 16px;
+}
+.health-label {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  color: #ff9f1c;
+  font:
+    700 0.58rem 'Space Mono',
+    monospace;
+}
+.health-track {
+  height: 7px;
+  overflow: hidden;
+  border: 1px solid #ff9f1c66;
+  background: #241a12;
+}
+.health-fill {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #ff6b35, #ffd166);
+  box-shadow: 0 0 12px #ff9f1c;
+  transition: width 0.25s ease;
+}
+.panel-skills {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  color: #8490a9;
+  font:
+    400 0.56rem 'Space Mono',
+    monospace;
+}
+canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
+  border: 1px solid #263048;
+  background: #080b13;
+}
+.game-message {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: #dce4ff;
+  font:
+    700 0.8rem 'Space Mono',
+    monospace;
+  letter-spacing: 0.08em;
+  text-align: center;
+  pointer-events: none;
+  text-transform: uppercase;
+}
+.ultimate-scene {
+  position: absolute;
+  inset: 12px;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 12px;
+  color: #fff2b0;
+  background: radial-gradient(circle, #80621c55, transparent 58%), #080a10b8;
+  border: 1px solid #ffd166;
+  box-shadow:
+    inset 0 0 45px #ffd16622,
+    0 0 30px #ffd16633;
+  animation: ultimate-in 0.18s ease-out both;
+  pointer-events: none;
+  text-align: center;
+}
+.ultimate-scene[hidden] {
+  display: none;
+}
+.ultimate-scene span {
+  color: #ffd166;
+  font:
+    700 0.65rem 'Space Mono',
+    monospace;
+  letter-spacing: 0.32em;
+}
+.ultimate-scene strong {
+  font:
+    700 clamp(1.5rem, 5vw, 3.8rem) / 1 'Space Grotesk',
+    sans-serif;
+  letter-spacing: 0.12em;
+  text-shadow: 0 0 22px #ffd166;
+}
+.ultimate-scene small {
+  color: #fff8d2;
+  font:
+    700 0.65rem 'Space Mono',
+    monospace;
+  letter-spacing: 0.2em;
+}
+@keyframes ultimate-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.instructions {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding-top: 16px;
+  color: var(--muted);
+  font:
+    400 0.68rem 'Space Mono',
+    monospace;
+}
+.instructions span:nth-child(3) {
+  color: var(--pink);
+}
+.instructions span:nth-child(4) {
+  color: #ffd166;
+}
+@media (max-width: 850px) {
+  .arena-layout {
+    grid-template-columns: 1fr 1fr;
+  }
+  .game-frame {
+    grid-column: 1/-1;
+    grid-row: 1;
+  }
+  .character-panel {
+    min-height: 150px;
+    align-self: stretch;
+  }
+  .cpu-panel {
+    text-align: right;
+  }
+  .panel-description {
+    min-height: 0;
+  }
+}
+@media (max-width: 700px) {
+  .topbar {
+    grid-template-columns: 1fr auto;
+    align-items: center;
+  }
+  .score {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .passives {
+    grid-column: 1/-1;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .controls {
+    grid-column: 1/-1;
+    justify-content: stretch;
+  }
+  .controls button {
+    flex: 1;
+  }
+  .arena-layout {
+    grid-template-columns: 1fr 1fr;
+    gap: 9px;
+  }
+  .character-panel {
+    padding: 13px 11px;
+  }
+  .character-mark {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 10px;
+  }
+  .character-panel h2 {
+    font-size: 1.1rem;
+  }
+  .panel-skills {
+    font-size: 0.5rem;
+  }
+  .instructions {
+    flex-direction: column;
+    gap: 7px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ultimate-scene {
+    animation: none;
+  }
+}
+
+/* Portfolio integration */
+.portfolio-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 28px;
+  margin-top: 24px;
+  border-top: 1px solid var(--line);
+  font:
+    700 0.7rem 'Space Mono',
+    monospace;
+}
+.portfolio-links a {
+  color: var(--cyan);
+  text-decoration: none;
+}
+.portfolio-links a:hover {
+  text-decoration: underline;
+}
+.portfolio-links a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 5px;
+}
+canvas {
+  touch-action: none;
+}
+.passives {
+  flex-wrap: wrap;
+}
+@media (max-width: 700px) {
+  .passives {
+    justify-content: flex-start;
+    gap: 8px 14px;
+  }
+  .passives span {
+    max-width: 100%;
+  }
+}

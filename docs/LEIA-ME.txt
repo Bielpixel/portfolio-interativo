@@ -5,13 +5,13 @@ A animação roda em 2×, sem painel inferior. Use Rever animação na barra sup
 Inclui a construção animada, a união dos cursores ao mouse, replay e oito experiências revisadas.
 
 Para abrir localmente:
-1. Extraia o ZIP mantendo a pasta projects junto dos arquivos HTML.
+1. Extraia o ZIP mantendo as pastas assets e projects junto dos arquivos HTML.
 2. Abra index.html no navegador.
 3. Os oito projetos e suas imagens usam os arquivos desta pasta, sem depender da hospedagem.
 
-Opcional: execute python -m http.server 8000 nessa pasta e abra http://localhost:8000.
+Não é necessário instalar programas, iniciar um servidor ou entrar no ChatGPT.
 
-Mantenha a pasta projects ao lado do HTML. Links externos, como GitHub e CurseForge, precisam de internet.
+Mantenha as pastas assets e projects ao lado do HTML. Imagens, sons e fontes estão incluídos para uso offline. Apenas links externos, como GitHub e CurseForge, precisam de internet.
 
 Projetos: ADA, X-Men, Flappy Bird, Portfólio clássico, Primeiros passos, Cards / Lab, AppIC e Neon Pong.
 ADA é uma demonstração: não envia formulários, não recebe dinheiro e não usa banco de dados.

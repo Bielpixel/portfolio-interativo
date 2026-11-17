@@ -1,0 +1,46 @@
+body {
+  --bg: #faf9ff;
+  --ink: #242333;
+  --muted: #6d6980;
+  --accent: #6853e4;
+}
+.portrait {
+  border-radius: 130px 130px 20px 20px;
+  background: #ded7fa;
+  padding: 20px;
+  transform: rotate(2deg);
+}
+.portrait img {
+  border-radius: 110px 110px 12px 12px;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+.portrait span {
+  display: block;
+  font:
+    10px ui-monospace,
+    monospace;
+  letter-spacing: 0.1em;
+  text-align: center;
+  margin-top: 18px;
+}
+
+/* Component variants */
+.brand-accent {
+  color: #6853e4;
+}
+.hero-accent {
+  color: #6853e4;
+}
+.education-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+}
+.education-title {
+  margin-top: 20px;
+}
+.education-title {
+  margin-top: 20px;
+}
+.projects-section {
+  background: #eeeaf8;
+}
