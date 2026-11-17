@@ -2,6 +2,8 @@
 
 Portfólio de Bielpixel construído em tempo real por cursores animados. Feito com HTML, CSS e JavaScript, com oito experiências que abrem dentro do próprio site.
 
+**[Abrir o portfólio](https://bielpixel.github.io/portfolio-interativo/)**
+
 ## Projetos
 
 - **ADAproject** — demonstração de proteção animal e adoção.
