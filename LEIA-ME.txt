@@ -1,0 +1,22 @@
+PORTFÓLIO DE BIEL — CURSORES + PROJETOS
+
+A animação roda em 2×, sem painel inferior. Use Rever animação na barra superior.
+
+Inclui a construção animada, a união dos cursores ao mouse, replay e oito experiências revisadas.
+
+Para abrir localmente:
+1. Extraia o ZIP mantendo a pasta projects junto dos arquivos HTML.
+2. Abra index.html no navegador.
+3. Os oito projetos e suas imagens usam os arquivos desta pasta, sem depender da hospedagem.
+
+Opcional: execute python -m http.server 8000 nessa pasta e abra http://localhost:8000.
+
+Mantenha a pasta projects ao lado do HTML. Links externos, como GitHub e CurseForge, precisam de internet.
+
+Projetos: ADA, X-Men, Flappy Bird, Portfólio clássico, Primeiros passos, Cards / Lab, AppIC e Neon Pong.
+ADA é uma demonstração: não envia formulários, não recebe dinheiro e não usa banco de dados.
+AppIC é uma adaptação web do protótipo Ionic, com uma lista de estudos salva no navegador.
+O Yamato tem links para o CurseForge e GitHub. SondMix é apresentado como bot do Discord.
+Os repositórios originais não foram alterados; estas são cópias revisadas para o portfólio.
+Créditos do X-Men/Dev em Dobro e Flappy/DevSoutinho estão nas respectivas páginas; a licença do Flappy está incluída.
+
